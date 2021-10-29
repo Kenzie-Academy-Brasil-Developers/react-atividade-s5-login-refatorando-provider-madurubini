@@ -31,6 +31,7 @@ export const AuthProvider = ({ children }: AuthProps) => {
       .post("https://kenziehub.herokuapp.com/sessions", userData)
       .then((response) => {
         localStorage.setItem("token", response.data.token);
+        localStorage.setItem("user", userData.email);
         setAuthToken(response.data.token);
         console.log(userData);
         history.push("/dashboard");
